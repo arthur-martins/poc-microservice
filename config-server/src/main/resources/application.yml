@@ -1,0 +1,17 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GITHUB_URI}
+          default-label: main
+          search-paths: 'config*'
+          # Só é necessário a utilização do username e password para acessar repositórios privados.
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_PASSWORD}
+
